@@ -3,10 +3,8 @@ from random import randint
 from time import sleep
 from typing import Optional
 
-# from engine import PluginCore
-# from model import Meta, Device
-import PluginCore
-import Meta, Device
+from ..engine import PluginCore
+from ..model import Meta, Device
 
 class AdvanceSamplePlugin(PluginCore):
 
