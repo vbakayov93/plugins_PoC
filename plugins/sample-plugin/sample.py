@@ -1,7 +1,7 @@
 from logging import Logger
 
-from engine import PluginCore
-from model import Meta, Device
+from ...engine import PluginCore
+from ...model import Meta, Device
 
 
 class SamplePlugin(PluginCore):
