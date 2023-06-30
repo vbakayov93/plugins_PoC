@@ -1,11 +1,12 @@
 name: 'Advanced Plugin'
 alias: 'advanced-plugin'
-creator: 'wax911'
+creator: 'vik'
 runtime:
   main: 'main.py'
   tests:
     - 'tests/core.py'
-repository: 'https://github.com/wax911/advanced-plugin'
+# or we can host the plugin  in different repositories
+repository: 'https://github.com/...../advanced-plugin'
 description: 'Advanced sample-plugin plugin template'
 version: '0.0.1'
 requirements:

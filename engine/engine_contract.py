@@ -1,7 +1,6 @@
 from logging import Logger
 from typing import Optional, List
 
-from ..model import Meta, Device
 
 
 class IPluginRegistry(type):
@@ -27,10 +26,27 @@ class PluginCore(object, metaclass=IPluginRegistry):
         """
         self._logger = logger
 
-    def invoke(self, **args) -> Device:
+    def invoke(self, **args) -> Dataset:
+        """
+        Starts main plugin flow
+        :param args: possible arguments for the plugin
+        :return: a dataset for the plugin
+        """
+        pass
+
+    def clean_dataset(self, **args) -> Dataset:
         """
         Starts main plugin flow
         :param args: possible arguments for the plugin
         :return: a device for the plugin
         """
+        pass
+
+    def validate_dataset(self, **args) -> bool:
+        """
+        Starts main plugin flow
+        :param args: possible arguments for the plugin
+        :return: a device for the plugin
+        """
+        print("Apply before plugins")
         pass

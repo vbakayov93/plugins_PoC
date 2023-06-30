@@ -4,7 +4,7 @@ from time import sleep
 from typing import Optional
 
 from ...engine import PluginCore
-from ...model import Meta, Device
+from ...model import Meta, Dataset
 
 class AdvanceSamplePlugin(PluginCore):
 
@@ -21,36 +21,48 @@ class AdvanceSamplePlugin(PluginCore):
         sleep_duration = randint(1, 100) / 100
         sleep(sleep_duration)
 
-    def __get_firmware(self) -> int:
+    def __get_tenant_short_name(self) -> str:
         self._logger.debug('Enquiring device firmware')
         self.__simulate_operation()
-        return 0xf41c3e
+        return "gtc"
 
-    def __get_protocol(self) -> str:
+    def __get_description(self) -> str:
         self._logger.debug('Enquiring messaging protocol')
         self.__simulate_operation()
-        return "ASCII"
+        return "global dm nielsen gtc data."
+
+
+    def __get_source(self) -> str:
+        self._logger.debug('Enquiring source')
+        self.__simulate_operation()
+        return "source_gtc"
 
     def __get_errors(self) -> [int]:
-        self._logger.debug('Enquiring device errors')
+        self._logger.debug('Enquiring errors')
         self.__simulate_operation()
         return [0x2f3a6c, 0xa8e1f5]
 
-    def __create_device(self) -> Device:
-        firmware = self.__get_firmware()
-        protocol = self.__get_protocol()
+    def __create_dataset(self) -> Dataset:
+        tenant_short_name = self.__get_tenant_short_name()
+        get_description = self.__get_description()
         errors = self.__get_errors()
+        source = self.__get_source()
 
-        return Device(
-            name='Advanced Sample Device',
-            firmware=firmware,
-            protocol=protocol,
+        return Dataset(
+            name='Dataset initialized by the advanced plugin',
+            tenantshortname=tenant_short_name,
+            source=source,
+            description=get_description,
             errors=errors
         )
 
-    def invoke(self, command: chr, protocol: Optional[str] = None) -> Device:
+    def invoke(self, command: chr, protocol: Optional[str] = None) -> Dataset:
         self._logger.debug(f'Command: {command} -> {self.meta}')
-        device = self.__create_device()
-        if device.protocol != protocol:
-            self._logger.warning(f'Device does not support protocol supplied protocol')
+        device = self.__create_dataset()
         return device
+
+    def validate_dataset(self, str_to_validate: str) -> bool:
+        self._logger.debug(f'string to validate: {str_to_validate} -> {self.meta}')
+        if str_to_validate != "expected_string_in_advanced_plugin":
+            return False
+        return True

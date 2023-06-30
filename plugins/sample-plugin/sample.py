@@ -1,7 +1,7 @@
 from logging import Logger
-
+from typing import Optional
 from ...engine import PluginCore
-from ...model import Meta, Device
+from ...model import Meta, Dataset
 
 
 class SamplePlugin(PluginCore):
@@ -14,16 +14,24 @@ class SamplePlugin(PluginCore):
             version='0.0.1'
         )
 
-    @staticmethod
-    def __create_device() -> Device:
-        return Device(
-            name='Sample Device',
-            firmware=0xa2c3f,
-            protocol='SAMPLE',
+    def __create_dataset(self) -> Dataset:
+
+        return Dataset(
+            name='Dataset initialized by the advanced plugin',
+            tenantshortname="sap_x40",
+            source="source_sap",
+            description="sap description goes here",
             errors=[0x0000]
         )
 
-    def invoke(self, command: chr) -> Device:
+    def invoke(self, command: chr, protocol: Optional[str] = None) -> Dataset:
         self._logger.debug(f'Command: {command} -> {self.meta}')
-        device = self.__create_device()
+        device = self.__create_dataset()
         return device
+
+    def validate_dataset(self, str_to_validate: str) -> bool:
+        self._logger.debug(f'string to validate: {str_to_validate} -> {self.meta}')
+        if str_to_validate != "expected_string_in_sample_plugin":
+            return False
+        return True
+

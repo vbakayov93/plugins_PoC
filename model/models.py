@@ -40,8 +40,9 @@ class Meta:
 
 
 @dataclass
-class Device:
+class Dataset:
+    tenantshortname: str
     name: str
-    firmware: int
-    protocol: str
+    source: int
+    description: str
     errors: List[int]
