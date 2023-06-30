@@ -1,0 +1,17 @@
+
+#For a given pipeline run only one active plugin?
+config:
+  active_plugins:
+    regions:
+      region_1: "PluginA"
+      region_2: "PluginB"
+    tenants:
+      tenant_1: "PluginC"
+    domains:
+      domain_1: "PluginM"
+    datasets:
+      dataset_1: "PluginZ"
+      dataset_2: "PluginF"
+      dataset_3: "PluginU"
+    entities:
+      entity_1:  "PluginK"
