@@ -1,6 +1,7 @@
 from logging import Logger
 from typing import Optional, List
 
+from ..model import Meta, Dataset
 
 
 class IPluginRegistry(type):
