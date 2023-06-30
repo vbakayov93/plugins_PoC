@@ -35,19 +35,10 @@ class PluginCore(object, metaclass=IPluginRegistry):
         """
         pass
 
-    def clean_dataset(self, **args) -> Dataset:
-        """
-        Starts main plugin flow
-        :param args: possible arguments for the plugin
-        :return: a device for the plugin
-        """
-        pass
-
     def validate_dataset(self, **args) -> bool:
         """
         Starts main plugin flow
         :param args: possible arguments for the plugin
         :return: a device for the plugin
         """
-        print("Apply before plugins")
         pass
