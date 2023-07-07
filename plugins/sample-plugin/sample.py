@@ -1,5 +1,8 @@
 from logging import Logger
 from typing import Optional
+
+from pyspark.pandas import DataFrame
+
 from ...engine import PluginCore
 from ...model import Meta, Dataset
 
@@ -15,7 +18,6 @@ class SamplePlugin(PluginCore):
         )
 
     def __create_dataset(self) -> Dataset:
-
         return Dataset(
             name='Dataset initialized by the advanced plugin',
             tenantshortname="sap_x40",
@@ -35,3 +37,5 @@ class SamplePlugin(PluginCore):
             return False
         return True
 
+    def pass_df_to_plugin(self, df: DataFrame) -> DataFrame:
+        return df.filter(df.CustomerCode == "Y00417")

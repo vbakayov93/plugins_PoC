@@ -3,8 +3,11 @@ from random import randint
 from time import sleep
 from typing import Optional
 
+from pyspark.sql import DataFrame
+
 from ...engine import PluginCore
 from ...model import Meta, Dataset
+
 
 class AdvanceSamplePlugin(PluginCore):
 
@@ -30,7 +33,6 @@ class AdvanceSamplePlugin(PluginCore):
         self._logger.debug('Enquiring messaging protocol')
         self.__simulate_operation()
         return "global dm nielsen gtc data."
-
 
     def __get_source(self) -> str:
         self._logger.debug('Enquiring source')
@@ -66,3 +68,6 @@ class AdvanceSamplePlugin(PluginCore):
         if str_to_validate != "expected_string_in_advanced_plugin":
             return False
         return True
+
+    def pass_df_to_plugin(self, df: DataFrame) -> DataFrame:
+        return df.filter(df.CustomerCode == "Y00417")

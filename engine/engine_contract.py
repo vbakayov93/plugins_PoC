@@ -1,5 +1,6 @@
 from logging import Logger
 from typing import Optional, List
+from pyspark.sql.dataframe import DataFrame
 
 from ..model import Meta, Dataset
 
@@ -13,9 +14,10 @@ class IPluginRegistry(type):
             IPluginRegistry.plugin_registries.append(cls)
 
 
+# TODO: Rename this to PluginAPI
 class PluginCore(object, metaclass=IPluginRegistry):
     """
-    Plugin core class
+    Plugin API class
     """
 
     meta: Optional[Meta]
@@ -35,10 +37,13 @@ class PluginCore(object, metaclass=IPluginRegistry):
         """
         pass
 
-    def validate_dataset(self, **args) -> bool:
+    def validate_dataset(self, **args) -> DataFrame:
         """
         Starts main plugin flow
         :param args: possible arguments for the plugin
         :return: a device for the plugin
         """
+        pass
+
+    def pass_df_to_plugin(self, **args) -> DataFrame:
         pass
