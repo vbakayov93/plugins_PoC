@@ -39,3 +39,6 @@ class SamplePlugin(PluginCore):
 
     def pass_df_to_plugin(self, df: DataFrame) -> DataFrame:
         return df.filter(df.CustomerCode == "Y00417")
+
+    def implement_by_only_one_plugin(self):
+        return "OK"

@@ -37,7 +37,7 @@ class PluginCore(object, metaclass=IPluginRegistry):
         """
         pass
 
-    def validate_dataset(self, **args) -> DataFrame:
+    def validate_dataset(self, **args) -> bool:
         """
         Starts main plugin flow
         :param args: possible arguments for the plugin
@@ -47,3 +47,7 @@ class PluginCore(object, metaclass=IPluginRegistry):
 
     def pass_df_to_plugin(self, **args) -> DataFrame:
         pass
+
+    def implement_by_only_one_plugin(self, **args) -> bool:
+        pass
+
