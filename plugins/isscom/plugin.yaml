@@ -1,5 +1,5 @@
-name: 'Advanced Plugin'
-alias: 'advanced-plugin'
+name: 'Isscom Plugin'
+alias: 'isscom-plugin'
 creator: 'vik'
 runtime:
   main: 'main.py'
@@ -7,7 +7,7 @@ runtime:
     - 'tests/core.py'
 # or we can host the plugin  in different repositories
 repository: 'https://github.com/...../advanced-plugin'
-description: 'Advanced sample-plugin plugin template'
+description: 'Isscom plugin description'
 version: '0.0.1'
 requirements:
   - name: 'PyYAML'

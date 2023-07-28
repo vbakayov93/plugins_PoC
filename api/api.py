@@ -1,5 +1,7 @@
 from logging import Logger
 from typing import Optional, List
+
+from pyspark import Row
 from pyspark.sql.dataframe import DataFrame
 
 from ..model import Meta, Dataset
@@ -44,7 +46,7 @@ class PluginAPI(object, metaclass=IPluginRegistry):
         """
         pass
 
-    def pass_df_to_plugin(self, **args) -> DataFrame:
+    def pass_df_to_plugin(self, **args) -> list[Row]:
         pass
 
     def implement_by_only_one_plugin(self, **args) -> bool:
