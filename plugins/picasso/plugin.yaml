@@ -1,5 +1,5 @@
-name: 'Sample Plugin'
-alias: 'sample-plugin'
+name: 'Picasso Plugin'
+alias: 'picasso plugin'
 creator: 'vik2'
 runtime:
   main: 'sample.py'

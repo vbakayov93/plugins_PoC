@@ -7,22 +7,22 @@ from ...api import PluginAPI
 from ...model import Meta, Dataset
 
 
-class SamplePlugin(PluginAPI):
+class PicassoPlugin(PluginAPI):
 
     def __init__(self, logger: Logger) -> None:
         super().__init__(logger)
         self.meta = Meta(
-            name='Sample Plugin',
-            description='Sample plugin template',
+            name='Picasso Plugin',
+            description='Picasso plugin template',
             version='0.0.1'
         )
 
     def __create_dataset(self) -> Dataset:
         return Dataset(
-            name='Dataset initialized by the advanced plugin',
+            name='Dataset initialized by the picasso plugin',
             tenantshortname="sap_x40",
             source="source_sap",
-            description="sap description goes here",
+            description="Picasso description goes here",
             errors=[0x0000]
         )
 
@@ -33,7 +33,7 @@ class SamplePlugin(PluginAPI):
 
     def validate_dataset(self, str_to_validate: str) -> bool:
         self._logger.debug(f'string to validate: {str_to_validate} -> {self.meta}')
-        if str_to_validate != "expected_string_in_sample_plugin":
+        if str_to_validate != "expected_string_in_picasso_plugin":
             return False
         return True
 
