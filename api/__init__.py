@@ -1,1 +1,1 @@
-from .api import PluginCore, IPluginRegistry
+from .api import PluginAPI, IPluginRegistry

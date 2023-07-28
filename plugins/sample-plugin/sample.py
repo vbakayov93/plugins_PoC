@@ -3,11 +3,11 @@ from typing import Optional
 
 from pyspark.pandas import DataFrame
 
-from ...api import PluginCore
+from ...api import PluginAPI
 from ...model import Meta, Dataset
 
 
-class SamplePlugin(PluginCore):
+class SamplePlugin(PluginAPI):
 
     def __init__(self, logger: Logger) -> None:
         super().__init__(logger)

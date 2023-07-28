@@ -10,7 +10,7 @@ class IPluginRegistry(type):
 
     def __init__(cls, name, bases, attrs):
         super().__init__(cls)
-        if name != 'PluginCore':
+        if name != 'PluginAPI':
             IPluginRegistry.plugin_registries.append(cls)
 
 

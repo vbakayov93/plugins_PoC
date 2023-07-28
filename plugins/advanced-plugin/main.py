@@ -5,11 +5,11 @@ from typing import Optional
 
 from pyspark.sql import DataFrame
 
-from ...api import PluginCore
+from ...api import PluginAPI
 from ...model import Meta, Dataset
 
 
-class AdvanceSamplePlugin(PluginCore):
+class AdvanceSamplePlugin(PluginAPI):
 
     def __init__(self, logger: Logger) -> None:
         super().__init__(logger)
