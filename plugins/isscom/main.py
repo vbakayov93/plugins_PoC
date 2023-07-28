@@ -44,5 +44,5 @@ class IsscomPlugin(PluginAPI):
     def bronze_to_silver_data_enrichment(self, df: DataFrame) -> list[Row]:
         return df.head(15)
 
-    def silver_to_gold_data_enrichment(self, df: DataFrame) -> list[Row]:
+    def silver_to_gold_data_enrichment(self, df: DataFrame) -> DataFrame:
         return df.head(5)
