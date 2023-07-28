@@ -1,5 +1,5 @@
 from logging import Logger
-from typing import Optional, List
+from typing import Optional, List, Any
 
 from pyspark import Row
 from pyspark.sql.dataframe import DataFrame
@@ -30,7 +30,7 @@ class PluginAPI(object, metaclass=IPluginRegistry):
         """
         self._logger = logger
 
-    def invoke(self, **args) -> Dataset:
+    def bronze_to_silver_data_enrichment(self, **args) -> DataFrame:
         """
         Starts main plugin flow
         :param args: possible arguments for the plugin
@@ -38,7 +38,15 @@ class PluginAPI(object, metaclass=IPluginRegistry):
         """
         pass
 
-    def validate_dataset(self, **args) -> bool:
+    def silver_to_gold_data_enrichment(self, **args) -> DataFrame:
+        """
+        Starts main plugin flow
+        :param args: possible arguments for the plugin
+        :return: a dataset for the plugin
+        """
+        pass
+
+    def validate_data(self, **args) -> bool:
         """
         Starts main plugin flow
         :param args: possible arguments for the plugin
@@ -46,9 +54,34 @@ class PluginAPI(object, metaclass=IPluginRegistry):
         """
         pass
 
-    def pass_df_to_plugin(self, **args) -> list[Row]:
+    def archive_data(self, **args):
+        """
+        Starts main plugin flow
+        :param args: possible arguments for the plugin
+        :return: a device for the plugin
+        """
         pass
 
-    def implement_by_only_one_plugin(self, **args) -> bool:
+    def partition(self, **args):
+        """
+        Starts main plugin flow
+        :param args: possible arguments for the plugin
+        :return: a device for the plugin
+        """
         pass
 
+    def encryption(self, **args):
+        """
+        Starts main plugin flow
+        :param args: possible arguments for the plugin
+        :return: a device for the plugin
+        """
+        pass
+
+    def run_integrity_tests(self, **args):
+        """
+        Starts main plugin flow
+        :param args: possible arguments for the plugin
+        :return: a device for the plugin
+        """
+        pass

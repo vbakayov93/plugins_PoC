@@ -26,19 +26,17 @@ class PicassoPlugin(PluginAPI):
             errors=[0x0000]
         )
 
+    # Showcase
     def invoke(self, command: chr, protocol: Optional[str] = None) -> Dataset:
         self._logger.debug(f'Command: {command} -> {self.meta}')
         device = self.__create_dataset()
         return device
 
-    def validate_dataset(self, str_to_validate: str) -> bool:
+    def validate_data(self, str_to_validate: str) -> bool:
         self._logger.debug(f'string to validate: {str_to_validate} -> {self.meta}')
         if str_to_validate != "expected_string_in_picasso_plugin":
             return False
         return True
 
-    def pass_df_to_plugin(self, df: DataFrame) -> DataFrame:
+    def bronze_to_silver_data_enrichment(self, df: DataFrame) -> DataFrame:
         return df.head(10)
-
-    def implement_by_only_one_plugin(self):
-        return "OK"
