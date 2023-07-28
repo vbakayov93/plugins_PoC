@@ -5,7 +5,7 @@ from typing import Optional
 
 from pyspark.sql import DataFrame
 
-from ...engine import PluginCore
+from ...api import PluginCore
 from ...model import Meta, Dataset
 
 

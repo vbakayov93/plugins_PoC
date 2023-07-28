@@ -14,8 +14,7 @@ class IPluginRegistry(type):
             IPluginRegistry.plugin_registries.append(cls)
 
 
-# TODO: Rename this to PluginAPI
-class PluginCore(object, metaclass=IPluginRegistry):
+class PluginAPI(object, metaclass=IPluginRegistry):
     """
     Plugin API class
     """
