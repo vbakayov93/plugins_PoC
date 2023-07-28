@@ -70,4 +70,4 @@ class AdvanceSamplePlugin(PluginCore):
         return True
 
     def pass_df_to_plugin(self, df: DataFrame) -> DataFrame:
-        return df.filter(df.CustomerCode == "Y00417")
+        return df.head(15)
